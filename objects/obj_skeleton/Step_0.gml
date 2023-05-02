@@ -5,7 +5,7 @@ switch (state)
 {
 	case "Idle":
 		#region  Idle State
-		if keyboard_check(ord("A"))
+		if inputs.left
 		{
 			Movement(-2, 0);
 			image_xscale = -1;
@@ -13,7 +13,7 @@ switch (state)
 			image_speed = 0.4;
 		}
 
-		else if keyboard_check(ord("D"))
+		else if inputs.right
 		{
 			Movement(2, 0);
 			image_xscale = 1;
@@ -26,12 +26,12 @@ switch (state)
 			sprite_index = spr_skeleton_idle
 		}
 	
-		if keyboard_check_pressed(vk_space)
+		if inputs.roll
 		{
 			state = "Roll";
 		}
 		
-		if mouse_check_button_pressed(mb_left)
+		if inputs.attack
 		{
 			state = "Attack"
 		}
@@ -58,7 +58,7 @@ switch (state)
 		#region Attack State
 		SpriteStates(spr_skeleton_attack_one, 0.4, 0);
 
-		if mouse_check_button_pressed(mb_left) and Combat(2, 4)
+		if inputs.attack and Combat(2, 4)
 		{
 			state = "AttackTwo"
 		}
@@ -69,7 +69,7 @@ switch (state)
 		#region Attack State Two
 		SpriteStates(spr_skeleton_attack_two, 0.4, 0);
 		
-		if mouse_check_button_pressed(mb_left) and Combat(2, 4)
+		if inputs.attack and Combat(2, 4)
 		{
 			state = "AttackThree"
 		}
