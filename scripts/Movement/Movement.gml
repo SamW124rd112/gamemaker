@@ -1,12 +1,12 @@
 //adjusts any movement code based on input x and y values
 function Movement(xSpeed, ySpeed){
-	if not place_meeting(x+argument0, y, obj_wall)
+	if not place_meeting(x+xSpeed, y, obj_wall)
 	{
-		x += argument0;
+		x += xSpeed;
 	}
 	
-	if not place_meeting(x, y+argument1, obj_wall)
+	if not place_meeting(x, y+ySpeed, obj_wall)
 	{
-		y += argument1;
+		y += ySpeed;
 	}
 }
